@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../../css/pages/login.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form action="../../../server/route/login.php" method="post">
+        <h1>Login</h1>
+
+        <div class="input-box">
+          <input
+            type="text"
+            name="name"
+            placeholder="name"
+            required
+          /><i class="bx bxs-user-pin"></i><br />
+        </div>
+
+        <div class="input-box">
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          /><br />
+        </div>
+
+        <div class="Remember-password">
+          <label><input type="checkbox" />Remember Me</label>
+          <a href="#">Forgot Password</a>
+        </div>
+
+        <button type="submit">Login</button>
+
+        <div class="register-link">
+          <p>
+            Don't have an account?<a href="../../html/page/register.html">Register</a>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <script src="../../js/pages/login.js"></script>
+    <script src="../../js/pages/darkmode.js"></script>
+  </body>
+</html>

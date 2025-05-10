@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudyMake – Smart Study Planner</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./frontend/css/pages/style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav">
+      <div class="logo">📚 StudyMake</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"><i class='bx bxs-home'></i> Home</a></li>
+        <li><a href="./frontend/html/page/user.html"><i class='bx bxs-user-pin'></i> User</a></li>
+        <li><a href="./frontend/html/page/sessions.html"><i class='bx bxs-graduation'></i> My Sessions</a></li>
+        <li><a href="#dashboard"><i class='bx bxs-bar-chart-alt-2'></i> Analytics</a></li>
+        <li><a href="./server/controller/pages/logout.php"><i class='bx bx-log-out'></i> Logout</a></li>
+        <li><button id="toggleDark" title="Toggle Dark Mode"><i class='bx bx-moon'></i></button></li>
+      </ul>
+    </div>
+    <div class="nav2">
+      <button id="menuToggle" class="menu-toggle"><i class='bx bx-menu'></i></button>
+    </div>
+    
+    
+  </nav>
+  
+
+  <!-- Sidebar (for mobile) -->
+  <!--aside class="sidebar" id="mobileSidebar">
+    <ul>
+      <li><a href="#home"><i class='bx bxs-home' ></i>Home</a></li>
+      <li><a href="/frontend/html/page/user.html"><i class='bx bxs-user-pin' ></i>User</a></li>
+      <li><a href="/frontend/html/page/sessions.html"><i class='bx bxs-graduation'></i>My Sessions</a></li>
+      <!--li><a href="#">✨Features</a></li-->
+      <!--li><a href="#"><i class='bx bxs-bar-chart-alt-2'></i>Leadership Board</a></li-->
+      <!--li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li-->
+      <!--li><a href="#"><i class='bx bx-notepad' ></i>Assignment</a></li-->
+      <!--li><a href="/frontend/index.html"><i class='bx bx-log-out'></i>Logout</a></li>
+      <!--li><button id="toggleDark" title="Toggle Dark Mode"><i class='bx bx-moon'></i></button></li>
+    <!--/ul>
+  <!--/aside-->
+   
+  <!-- Hero Section -->
+  <header class="header">
+    <h1>Smart Study Planner</h1>
+    <p>Plan better, study smarter, stress less</p>
+    <div class="cta-buttons">
+      <a href="./frontend/html/page/login.html">Login</a>
+      <a href="./frontend/html/page/register.html">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature"><i class='bx bx-calendar'></i><h3>Smart Scheduling</h3><p>Optimized study sessions.</p></div>
+    <div class="feature"><i class='bx bx-timer'></i><h3>Pomodoro Timer</h3><p>Stay focused and refreshed.</p></div>
+    <div class="feature"><i class='bx bx-bar-chart'></i><h3>Analytics</h3><p>Track and improve habits.</p></div>
+    <div class="feature"><i class='bx bxs-group'></i><h3>Group Study</h3><p>Collaborate in real time.</p></div>
+  </section>
+
+<!--Task Section-->
+<section class="dashboard" id="dashboard">
+  <!-- Pie Chart -->
+  <div class="chart-section">
+    <h3>Tasks</h3>
+    <canvas id="taskChart" width="250" height="250"></canvas>
+    <ul class="legend">
+      <li><span class="box complete"></span>Completed</li>
+      <li><span class="box incomplete"></span>Incompleted</li>
+    </ul>
+  </div>
+
+  <!-- Bar Chart -->
+  <div class="bar-section">
+    <h3>Leadership Board</h3>
+    <canvas id="barChart" width="300" height="250"></canvas>
+  </div>
+</section>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 StudyMake. All rights reserved.</p>
+      <ul class="social-links">
+        <li><a href="http://linkedin.com/in/shalom-idoga-62b426344" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a></li>
+        <li><a href="https://github.com/idoga-shalom" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./frontend/js/pages/darkmode.js"></script>
+  <!--script src="./frontend/js/pages/navbar.js"></script-->
+  <script src="./frontend/js/pages/task.js"></script>
+</body>
+</html>
+
