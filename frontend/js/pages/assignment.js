@@ -25,7 +25,7 @@ function renderAssignments() {
 }
 
 function attachDeleteListeners() {
-  document.querySelectorAll(".delete-assignment").forEach(button => {
+  document.querySelectorAll(".delete-assignment").forEach((button) => {
     button.addEventListener("click", (e) => {
       const index = e.target.getAttribute("data-index");
       assignments.splice(index, 1);
@@ -35,25 +35,27 @@ function attachDeleteListeners() {
   });
 }
 
-document.getElementById("open-assignment-form").addEventListener("click", () => {
-  const subject = document.getElementById("assignment-subject").value.trim();
-  const description = document.getElementById("assignment-desc").value.trim();
-  const dueDate = document.getElementById("assignment-date").value;
+document
+  .getElementById("open-assignment-form")
+  .addEventListener("click", () => {
+    const subject = document.getElementById("assignment-subject").value.trim();
+    const description = document.getElementById("assignment-desc").value.trim();
+    const dueDate = document.getElementById("assignment-date").value;
 
-  if (!subject || !description || !dueDate) {
-    alert("Please fill in all fields.");
-    return;
-  }
+    if (!subject || !description || !dueDate) {
+      alert("Please fill in all fields.");
+      return;
+    }
 
-  assignments.push({ subject, description, dueDate });
-  localStorage.setItem("assignments", JSON.stringify(assignments));
+    assignments.push({ subject, description, dueDate });
+    localStorage.setItem("assignments", JSON.stringify(assignments));
 
-  document.getElementById("assignment-subject").value = "";
-  document.getElementById("assignment-desc").value = "";
-  document.getElementById("assignment-date").value = "";
+    document.getElementById("assignment-subject").value = "";
+    document.getElementById("assignment-desc").value = "";
+    document.getElementById("assignment-date").value = "";
 
-  renderAssignments();
-});
+    renderAssignments();
+  });
 
 window.addEventListener("DOMContentLoaded", renderAssignments);
 
@@ -66,7 +68,7 @@ function saveAssignment() {
     const assignment = {
       subject,
       task,
-      dueDate
+      dueDate,
     };
 
     let assignments = JSON.parse(localStorage.getItem("assignments")) || [];
@@ -80,12 +82,16 @@ function saveAssignment() {
   }
 }
 
-  document.getElementById("open-assignment-form").addEventListener("click", function () {
+document
+  .getElementById("open-assignment-form")
+  .addEventListener("click", function () {
     const subject = document.getElementById("assignment-subject").value.trim();
     const description = document.getElementById("assignment-desc").value.trim();
     const dueDate = document.getElementById("assignment-date").value;
 
-    const wordCount = description.split(/\s+/).filter(word => word.length > 0).length;
+    const wordCount = description
+      .split(/\s+/)
+      .filter((word) => word.length > 0).length;
 
     if (!subject || !description || !dueDate) {
       alert("Please fill in all fields.");
@@ -93,11 +99,12 @@ function saveAssignment() {
     }
 
     if (wordCount < 180) {
-      alert(`Assignment must be at least 180 words. Current word count: ${wordCount}`);
+      alert(
+        `Assignment must be at least 180 words. Current word count: ${wordCount}`
+      );
       return;
     }
 
     // Submit the data (AJAX or form submission here)
     alert("Assignment submitted successfully!");
   });
-

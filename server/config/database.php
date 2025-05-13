@@ -1,4 +1,5 @@
 <?php
+
 namespace Config;
 
 use PDO;
@@ -9,7 +10,7 @@ class Database
     private $host = 'localhost';
     private $dbname = 'study_planner';
     private $user = 'root';
-    private $pass = '';
+    private $pass = 'admin';
     private $conn;
 
     public function getConnection()
@@ -26,5 +27,3 @@ class Database
         return $this->conn;
     }
 }
-
-

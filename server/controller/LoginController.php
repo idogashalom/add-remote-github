@@ -1,7 +1,8 @@
 <?php
+
 namespace Controller;
 
-session_start();
+session_start(); // Start the session
 
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../model/user.php';
@@ -58,7 +59,7 @@ class LoginController
                     $msg = "✅ Login successful!";
                     echo "<script>
                         alert(" . json_encode($msg) . ");
-                        window.location.href='../../frontend/html/page/sessions.html'; // or your desired page
+                        window.location.href='../../frontend/html/page/sessions.php'; // or your desired page
                     </script>";
                     exit();
                 } else {
@@ -69,7 +70,6 @@ class LoginController
                     </script>";
                     exit();
                 }
-
             } catch (PDOException $e) {
                 $msg = "Database Error: " . $e->getMessage();
                 echo "<script>

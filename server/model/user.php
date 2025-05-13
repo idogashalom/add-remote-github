@@ -1,7 +1,17 @@
 <?php
+
 namespace Model;
 
+session_start();
+
+// Check if the user is logged in (check for 'user_id' session)
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(['error' => 'User not logged in']);
+    exit; // Make sure no further code is executed
+}
+
 use PDO;
+use PDOException;
 
 class User
 {
@@ -13,7 +23,7 @@ class User
         $this->conn = $db;
     }
 
-    // Check if email exists (existing method)
+    // Check if email exists
     public function emailExists($email)
     {
         $sql = "SELECT id FROM {$this->table} WHERE email = :email LIMIT 1";
@@ -22,7 +32,7 @@ class User
         return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
     }
 
-    // Register a new user (existing method)
+    // Register a new user
     public function register($name, $email, $password)
     {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -37,11 +47,11 @@ class User
         ]);
     }
 
-    // Get user by username (new method)
+    // Get user by username
     public function getUserByName($username)
     {
         try {
-            $sql = "SELECT * FROM {$this->table} WHERE name = :username LIMIT 1"; // Query by name (username)
+            $sql = "SELECT * FROM {$this->table} WHERE name = :username LIMIT 1";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['username' => $username]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
